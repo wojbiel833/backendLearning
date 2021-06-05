@@ -38,10 +38,9 @@ const surnameArr = [
 ];
 
 const randChoice = (arr) => {
-  const arg1 = Math.trunc(Math.random() * arr.length);
-  const arg2 = arg1 + 1;
+  const arg = Math.floor(Math.random() * arr.length);
 
-  return arr.slice(arg1, arg2);
+  return arr[arg];
 };
 
 const people = [];
@@ -58,22 +57,25 @@ for (let i = 1; i < 20; i++) {
   const lastName = randChoice(surnameArr);
   console.log(lastName);
 
-  const age = () => {
-    const a = Math.trunc(Math.random() * 79);
-    console.log(a);
+  const age = Math.floor(Math.random() * 50) + 18;
 
-    if (a > 17) {
-      return a;
-    } else age();
-  };
-  age();
+  // const age = () => {
+  //   const a = Math.trunc(Math.random() * 79);
+  //   console.log(a);
+
+  //   if (a > 17) {
+  //     return a;
+  //   } else return age();
+  // };
+  // age();
 
   const person = {};
   // `{ gender: '${gender}', firstName: '${firstName}', lastName: '${lastName}', age: ${age()} }`;
   person.gender = gender;
   person.firstName = firstName;
   person.lastName = lastName;
-  person.age = age();
+  person.age = age;
+
   console.log(person);
   people.push(person);
 }
